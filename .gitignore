@@ -283,3 +283,4 @@ __pycache__/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+01/01/S105/helloworld/bin/Debug/netcoreapp3.1/helloworld.exe

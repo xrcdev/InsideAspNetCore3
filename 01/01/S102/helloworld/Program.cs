@@ -8,7 +8,7 @@ namespace helloworld
     class Program
     {
         static void Main()
-        {
+        { 
             Host.CreateDefaultBuilder()
                 .ConfigureWebHost(webHostBuilder => webHostBuilder
                     .UseKestrel()

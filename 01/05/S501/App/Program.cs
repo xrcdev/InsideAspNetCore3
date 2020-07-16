@@ -8,9 +8,10 @@ namespace App
     {
         static void Main()
         {
-            static void Print(int layer, string name) => Console.WriteLine($"{new string(' ', layer * 4)}{name}");
+            static void Print(int layer, string name) =>
+             Console.WriteLine($"{new string(' ', layer * 4)}{name}");
             new ServiceCollection()
-                .AddSingleton<IFileProvider>(new PhysicalFileProvider(@"c:\test"))
+                .AddSingleton<IFileProvider>(new PhysicalFileProvider(@"D:\Drivers\Audio"))
                 .AddSingleton<IFileManager, FileManager>()
                 .BuildServiceProvider()
                 .GetRequiredService<IFileManager>()

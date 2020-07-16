@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections.Generic;
 
 namespace App
 {
@@ -13,6 +14,7 @@ namespace App
                 .AddJsonFile("profile.json")
                 .Build();
 
+            var r= configuration.GetValue<IEnumerable<Profile>>("UserList");
             var serviceProvider = new ServiceCollection()
                 .AddOptions()
                 .Configure<Profile>("foo", configuration.GetSection("foo"))
@@ -21,7 +23,7 @@ namespace App
 
             var optionsAccessor = serviceProvider
                 .GetRequiredService<IOptionsSnapshot<Profile>>();
-            Print(optionsAccessor.Get("foo"));
+            Print(optionsAccessor.Get("foo"));  
             Print(optionsAccessor.Get("bar"));
 
             static void Print(Profile profile)

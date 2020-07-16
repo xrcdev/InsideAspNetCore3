@@ -1,18 +1,36 @@
 {
-  "foo": {
-    "gender": "Male",
-    "age": "18",
-    "contactInfo": {
-      "emailAddress": "foo@outlook.com",
-      "phoneNo": "123"
-    }
-  },
-  "bar": {
-    "gender": "Female",
-    "age": "25",
-    "contactInfo": {
-      "emailAddress": "bar@outlook.com",
-      "phoneNo": "456"
-    }
-  }
+    "foo": {
+        "gender": "Male",
+        "age": "18",
+        "contactInfo": {
+            "emailAddress": "啊啊foo@outlook.com",
+            "phoneNo": "123"
+        }
+    },
+    "bar": {
+        "gender": "Female",
+        "age": "25",
+        "contactInfo": {
+            "emailAddress": "bar@outlook.com",
+            "phoneNo": "456"
+        }
+    },
+    "UserList": [
+        {
+            "gender": "Male",
+            "age": "18",
+            "contactInfo": {
+                "emailAddress": "foo@outlook.com",
+                "phoneNo": "123"
+            }
+        },
+        {
+            "gender": "Female",
+            "age": "25",
+            "contactInfo": {
+                "emailAddress": "bar@outlook.com",
+                "phoneNo": "456"
+            }
+        }
+    ]
 }

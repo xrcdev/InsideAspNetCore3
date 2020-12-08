@@ -9,6 +9,7 @@ namespace App
     public interface IBaz { }
     public interface IQux { }
     public interface IFoobar<T1, T2> { }
+
     public class Base : IDisposable
     {
         public Base()

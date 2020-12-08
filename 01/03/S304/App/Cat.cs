@@ -8,7 +8,14 @@ namespace App
     public class Cat : IServiceProvider, IDisposable
     {
         internal readonly Cat _root;
+        /// <summary>
+        /// 类型和注册服务
+        /// </summary>
         internal readonly ConcurrentDictionary<Type, ServiceRegistry> _registries;
+
+        /// <summary>
+        /// 缓存key和对象的实例
+        /// </summary>
         private readonly ConcurrentDictionary<Key, object> _services;
         private readonly ConcurrentBag<IDisposable> _disposables;
         private volatile bool _disposed;
@@ -51,6 +58,11 @@ namespace App
             return this;
         }
 
+        /// <summary>
+        /// 获取指定类型的实例
+        /// </summary>
+        /// <param name="serviceType">目标类型</param>
+        /// <returns></returns>
         public object GetService(Type serviceType)
         {
             EnsureNotDisposed();
@@ -103,6 +115,12 @@ namespace App
             _services.Clear();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="registry">注册服务</param>
+        /// <param name="genericArguments">参数</param>
+        /// <returns></returns>
         private object GetServiceCore(ServiceRegistry registry, Type[] genericArguments)
         {
             var key = new Key(registry, genericArguments);

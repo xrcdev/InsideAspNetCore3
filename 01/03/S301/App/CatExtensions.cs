@@ -74,10 +74,12 @@ namespace App
             var constructors = type.GetConstructors();
             if (constructors.Length == 0)
             {
-                throw new InvalidOperationException($"Cannot create the instance of {type} which does not have an public constructor.");
+                constructors = type.GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic);
+                //throw new InvalidOperationException($"Cannot create the instance of {type} which does not have an public constructor.");
             }
             var constructor = constructors.FirstOrDefault(it => it.GetCustomAttributes(false).OfType<InjectionAttribute>().Any());
-            constructor ??= constructors.First();
+            constructor = constructor ??= constructors.First();
+
             var parameters = constructor.GetParameters();
             if (parameters.Length == 0)
             {

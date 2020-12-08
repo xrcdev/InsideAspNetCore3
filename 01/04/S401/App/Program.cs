@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+
 using System.Diagnostics;
 
 namespace App
@@ -12,6 +13,7 @@ namespace App
                 .AddScoped<IBar>(_ => new Bar())
                 .AddSingleton<IBaz, Baz>()
                 .BuildServiceProvider();
+
             Debug.Assert(provider.GetService<IFoo>() is Foo);
             Debug.Assert(provider.GetService<IBar>() is Bar);
             Debug.Assert(provider.GetService<IBaz>() is Baz);

@@ -8,13 +8,21 @@ namespace helloworld
     class Program
     {
         static void Main()
-        { 
+        {
             Host.CreateDefaultBuilder()
                 .ConfigureWebHost(webHostBuilder => webHostBuilder
-                    .UseKestrel()
+                    //.UseKestrel()
+
                     .Configure(app => app.Run(context => context.Response.WriteAsync("Hello World."))))
                 .Build()
                 .Run();
+
+            //Host.CreateDefaultBuilder()
+            //    .ConfigureWebHostDefaults(cf => cf.Configure(
+            //                                        app => app.Run(
+            //                                                context => context.Response.WriteAsync("Hello World."))))
+            //    .Build()
+            //    .Run();
         }
     }
 }

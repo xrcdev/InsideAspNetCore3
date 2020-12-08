@@ -8,6 +8,7 @@ namespace App
 {
     public static class CatExtensions
     {
+        //注册基方法
         public static Cat Register(this Cat cat, Type from, Type to, Lifetime lifetime)
         {
             Func<Cat, Type[], object> factory = (_, arguments) => Create(_, to, arguments);
@@ -65,6 +66,13 @@ namespace App
 
         public static IEnumerable<T> GetServices<T>(this Cat cat) => cat.GetService<IEnumerable<T>>();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cat">容器</param>
+        /// <param name="type">目标类型</param>
+        /// <param name="genericArguments">参数</param>
+        /// <returns></returns>
         private static object Create(Cat cat, Type type, Type[] genericArguments)
         {
             if (genericArguments.Length > 0)
